@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании | GREIF</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* GREIF-inspired стили с зеленой цветовой гаммой */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        :root {
+            --greif-green: #006b3f;
+            --greif-light-green: #3a9d5d;
+            --greif-dark-green: #004d2c;
+            --greif-beige: #f5f1e8;
+            --greif-gray: #4a4a4a;
+            --greif-light-gray: #f8f8f8;
+            --greif-orange: #f15a24;
+        }
+        
+        body {
+            background-color: var(--greif-beige);
+            color: var(--greif-gray);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Шапка */
+        header {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+            border-bottom: 2px solid var(--greif-green);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--greif-dark-green);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-tagline {
+            font-size: 12px;
+            color: var(--greif-green);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--greif-gray);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--greif-green);
+        }
+        
+        nav a.active {
+            color: var(--greif-green);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--greif-green);
+        }
+        
+        /* Основной контент */
+        .page-content {
+            min-height: 60vh;
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--greif-dark-green);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--greif-green);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Баннер о компании */
+        .company-hero {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--greif-beige) 0%, #e8e3d6 100%);
+            margin-bottom: 60px;
+            border-radius: 15px;
+        }
+        
+        .years-badge {
+            background-color: var(--greif-green);
+            color: white;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 107, 63, 0.3);
+        }
+        
+        .company-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--greif-dark-green);
+        }
+        
+        .company-hero p {
+            font-size: 22px;
+            color: var(--greif-gray);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        /* Текстовый контент */
+        .text-content {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 60px;
+        }
+        
+        .text-content p {
+            margin-bottom: 20px;
+        }
+        
+        .text-content strong {
+            color: var(--greif-dark-green);
+        }
+        
+        /* История компании */
+        .history-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .history-section h2 {
+            color: var(--greif-dark-green);
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-align: center;
+        }
+        
+        .history-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--greif-green);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            width: 50%;
+            padding: 20px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 50px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+            padding-left: 50px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--greif-green);
+            border-radius: 50%;
+            top: 25px;
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+        
+        .timeline-year {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--greif-green);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content {
+            background-color: var(--greif-light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--greif-green);
+        }
+        
+        /* Достижения */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .achievement-item {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--greif-green);
+        }
+        
+        .achievement-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .achievement-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--greif-green);
+        }
+        
+        .achievement-number {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--greif-dark-green);
+        }
+        
+        .achievement-text {
+            font-size: 18px;
+            color: var(--greif-gray);
+        }
+        
+        /* Разделы компании */
+        .company-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .company-section {
+            background: white;
+            border-radius: 12px;
+            padding: 35px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            border-left: 4px solid var(--greif-green);
+        }
+        
+        .company-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .company-section h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--greif-dark-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .company-section h3 i {
+            color: var(--greif-green);
+        }
+        
+        /* Клиенты */
+        .clients-section {
+            background-color: var(--greif-light-gray);
+            padding: 50px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+        }
+        
+        .clients-section h2 {
+            color: var(--greif-dark-green);
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-align: center;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .client-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--greif-dark-green);
+        }
+        
+        /* Кнопки */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 34px;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--greif-green);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--greif-dark-green);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 107, 63, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--greif-green);
+            border: 2px solid var(--greif-green);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 107, 63, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .btn i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* Хлебные крошки */
+        .breadcrumbs {
+            background-color: rgba(0, 107, 63, 0.05);
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+        
+        .breadcrumbs-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumbs a {
+            color: var(--greif-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .breadcrumbs span {
+            color: var(--greif-gray);
+        }
+        
+        .breadcrumbs i {
+            color: var(--greif-light-green);
+            font-size: 12px;
+        }
+        
+        /* Футер */
+        footer {
+            background-color: var(--greif-dark-green);
+            color: white;
+            padding: 70px 0 30px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--greif-light-green);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #d0d0d0;
+            margin-bottom: 12px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            background-color: var(--greif-green);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 14px 18px;
+            border-radius: 6px 0 0 6px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+        }
+        
+        .search-box input::placeholder {
+            color: #b0b0b0;
+        }
+        
+        .search-box button {
+            background-color: var(--greif-light-green);
+            color: white;
+            border: none;
+            padding: 0 22px;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: var(--greif-green);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .company-hero h1 {
+                font-size: 36px;
+            }
+            
+            .company-hero p {
+                font-size: 18px;
+                padding: 0 15px;
+            }
+            
+            .history-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left !important;
+                padding-left: 60px !important;
+                padding-right: 20px !important;
+            }
+            
+            .timeline-item::before {
+                left: 21px !important;
+                right: auto !important;
+            }
+            
+            .achievements-grid, .company-sections, .clients-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .history-section, .clients-section {
+                padding: 30px 20px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .company-hero h1 {
+                font-size: 28px;
+            }
+            
+            .years-badge {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .client-item {
+                height: 80px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo-container">
+                <!-- Логотип GREIF в виде SVG -->
+                <svg class="logo-img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="20" width="160" height="160" rx="15" fill="#006b3f"/>
+                    <path d="M70,70 L130,70 L130,100 L70,100 Z" fill="white"/>
+                    <path d="M70,120 L130,120 L130,150 L70,150 Z" fill="white"/>
+                    <circle cx="100" cy="60" r="10" fill="white"/>
+                    <circle cx="100" cy="140" r="10" fill="white"/>
+                    <text x="100" y="185" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="24">GREIF</text>
+                </svg>
+                <div>
+                    <div class="logo-text">GREIF</div>
+                    <div class="logo-tagline">PACKAGING SUCCESS TOGETHER™</div>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="services.html">Сервисы</a></li>
+                    <li><a href="about.html" class="active">О компании</a></li>
+                    <li><a href="career.html">Карьера</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Хлебные крошки -->
+    <div class="breadcrumbs">
+        <div class="container breadcrumbs-content">
+            <a href="index.html">Главная</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>О компании</span>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="page-content">
+        <div class="container">
+            <!-- Баннер о компании -->
+            <div class="company-hero">
+                <div class="years-badge">32 года в России</div>
+                <h1>GREIF. История успеха</h1>
+                <p>Мировой лидер в области промышленных упаковочных решений и сервисов</p>
+            </div>
+            
+            <!-- Основной текст -->
+            <div class="text-content">
+                <p>Компания <strong>Грайф</strong> работает на территории России с 1993 года. Под брендом Грайф производятся стальные бочки; пластиковая тара – IBC (еврокубы) и канистры; картонные контейнеры для битума. В 2023 году наша компания отметила 30-летний юбилей работы в России.</p>
+                
+                <p>В нашем бизнесе мы используем передовые технологии и оборудование, предъявляем самые строгие требования к качеству выпускаемой нами упаковки. Наши клиенты — все ведущие химические и нефтехимические компании России и СНГ и мы гордимся долгим и плодотворным сотрудничеством!</p>
+            </div>
+            
+            <!-- Достижения -->
+            <h2 class="section-title">Наши достижения</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="achievement-number">9</div>
+                    <div class="achievement-text">заводов в крупнейших промышленных узлах РФ</div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="achievement-number">520+</div>
+                    <div class="achievement-text">сотрудников по всей России</div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="achievement-number">32</div>
+                    <div class="achievement-text">года работы в России</div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="achievement-number">146</div>
+                    <div class="achievement-text">лет истории компании Greif Inc.</div>
+                </div>
+            </div>
+            
+            <!-- История компании -->
+            <div class="history-section" id="history">
+                <h2>История компании</h2>
+                <div class="history-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1877</div>
+                        <div class="timeline-content">
+                            <p>Основание компании Greif Inc. в США. Начало производства деревянных бочек.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1993</div>
+                        <div class="timeline-content">
+                            <p>Greif начинает работу на территории России. Открытие первого завода.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2000-е</div>
+                        <div class="timeline-content">
+                            <p>Экспансия в России. Открытие новых заводов в ключевых промышленных регионах.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <p>30-летний юбилей работы в России. Внедрение новых технологий и расширение ассортимента.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Разделы компании -->
+            <div class="company-sections">
+                <div class="company-section" id="sustainability">
+                    <h3><i class="fas fa-leaf"></i> Устойчивое развитие</h3>
+                    <p>Мы стремимся минимизировать воздействие на окружающую среду, внедряя принципы циркулярной экономики. Наши программы по сбору и восстановлению упаковки позволяют значительно сократить отходы и экономить ресурсы.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Программы переработки и восстановления упаковки</li>
+                        <li>Снижение углеродного следа в производстве</li>
+                        <li>Использование экологичных материалов</li>
+                        <li>Энергоэффективные технологии</li>
+                    </ul>
+                </div>
+                
+                <div class="company-section" id="news">
+                    <h3><i class="fas fa-newspaper"></i> Новости компании</h3>
+                    <p>Будьте в курсе последних событий и достижений компании GREIF. Мы регулярно публикуем новости о запуске новых продуктов, участии в выставках и развитии нашего бизнеса.</p>
+                    <div style="margin-top: 20px; background-color: var(--greif-light-gray); padding: 15px; border-radius: 8px;">
+                        <p style="font-weight: 600; color: var(--greif-green); margin-bottom: 10px;">Последние новости:</p>
+                        <ul style="padding-left: 20px;">
+                            <li>Открытие нового инженерного центра в Вологде</li>
+                            <li>Запуск линии по производству биоразлагаемой упаковки</li>
+                            <li>Участие в международной выставке "Химия-2024"</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="company-section" id="videos">
+                    <h3><i class="fas fa-video"></i> Видеоматериалы</h3>
+                    <p>Ознакомьтесь с нашими видеоматериалами, чтобы узнать больше о производственных процессах, продукции и компании в целом.</p>
+                    <div style="margin-top: 20px; background-color: var(--greif-light-gray); padding: 15px; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-play-circle" style="font-size: 40px; color: var(--greif-green); margin-bottom: 10px;"></i>
+                        <p style="font-weight: 600; color: var(--greif-dark-green);">Доступные видео:</p>
+                        <ul style="padding-left: 20px; text-align: left;">
+                            <li>Экскурсия по заводу в Калуге</li>
+                            <li>Процесс производства еврокубов</li>
+                            <li>Интервью с руководством компании</li>
+                            <li>Корпоративный фильм о GREIF</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Наши клиенты -->
+            <div class="clients-section">
+                <h2>Наши клиенты</h2>
+                <p style="text-align: center; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">Мы гордимся сотрудничеством с ведущими компаниями различных отраслей промышленности:</p>
+                
+                <div class="clients-grid">
+                    <div class="client-item">Химическая промышленность</div>
+                    <div class="client-item">Нефтехимическая промышленность</div>
+                    <div class="client-item">Пищевая промышленность</div>
+                    <div class="client-item">Фармацевтическая промышленность</div>
+                    <div class="client-item">Автомобильная промышленность</div>
+                    <div class="client-item">Сельскохозяйственная отрасль</div>
+                </div>
+            </div>
+            
+            <!-- Философия компании -->
+            <div class="history-section">
+                <h2>Наша философия</h2>
+                <div class="text-content">
+                    <p><strong>PACKAGING SUCCESS TOGETHER™</strong> - это не просто слоган, это философия нашей компании. Мы верим, что успех достигается совместными усилиями с нашими клиентами, партнерами и сотрудниками.</p>
+                    
+                    <p>Наша миссия - предоставлять инновационные, надежные и экологичные упаковочные решения, которые помогают нашим клиентам достигать их бизнес-целей. Мы стремимся быть не просто поставщиком упаковки, а стратегическим партнером, который вносит вклад в успех вашего бизнеса.</p>
+                    
+                    <p>Ценности GREIF: <strong>Надежность, Инновации, Ответственность, Партнерство, Качество</strong>. Эти принципы лежат в основе всего, что мы делаем - от разработки новых продуктов до взаимодействия с клиентами.</p>
+                </div>
+            </div>
+            
+            <!-- Кнопки для действий -->
+            <div class="cta-buttons">
+                <a href="catalog.html" class="btn btn-primary">
+                    <i class="fas fa-box"></i> Наша продукция
+                </a>
+                <a href="contacts.html" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Связаться с нами
+                </a>
+                <a href="career.html" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i> Карьера в GREIF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GREIF Global</h3>
+                    <a href="#" target="_blank">Global Website <i class="fas fa-external-link-alt" style="margin-left: 5px;"></i></a>
+                    <p>Лидер в производстве промышленной упаковки с 1877 года</p>
+                    <div class="footer-links">
+                        <a href="about.html#history">История компании</a>
+                        <a href="about.html#sustainability">Устойчивое развитие</a>
+                        <a href="about.html#news">Новости</a>
+                        <a href="about.html#videos">Видеоматериалы</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Россия, 115280, г. Москва, ул. Ленинская слобода, 19, ком. 2061</p>
+                    <a href="tel:+74959335947" class="contact-phone"><i class="fas fa-phone" style="margin-right: 8px;"></i> +7 (495) 933-59-47</a>
+                    <a href="mailto:Moscow.Office@greif.com" class="contact-email"><i class="fas fa-envelope" style="margin-right: 8px;"></i> Moscow.Office@greif.com</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <div class="footer-links">
+                        <a href="catalog.html">Каталог</a>
+                        <a href="services.html">Сервисы</a>
+                        <a href="about.html">О компании</a>
+                        <a href="career.html">Карьера</a>
+                        <a href="contacts.html">Контакты</a>
+                    </div>
+                    
+                    <h3 style="margin-top: 25px;">Поиск по сайту</h3>
+                    <div class="search-box">
+                        <input type="text" placeholder="Введите запрос...">
+                        <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Greif Russia. Copyright by GREIF Inc. All rights reserved.</p>
+                <p style="margin-top: 10px;">Доработано в brain promo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Установка активного пункта меню
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('nav a').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Обработка поиска
+            document.getElementById('searchButton').addEventListener('click', function() {
+                const input = document.querySelector('.search-box input');
+                const query = input.value;
+                
+                if (query.trim()) {
+                    alert(`Поиск по запросу: "${query}". В реальном сайте здесь будет реализован поиск по содержимому.`);
+                    input.value = '';
+                }
+            });
+            
+            // Обработка нажатия Enter в поле поиска
+            document.querySelector('.search-box input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('searchButton').click();
+                }
+            });
+            
+            // Анимация для элементов при прокрутке
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Применяем анимацию к карточкам достижений и разделам
+            document.querySelectorAll('.achievement-item, .company-section, .timeline-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(item);
+            });
+            
+            // Плавная прокрутка к якорям
+            if (window.location.hash) {
+                const targetElement = document.querySelector(window.location.hash);
+                if (targetElement) {
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
+            }
+        });
+        
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
