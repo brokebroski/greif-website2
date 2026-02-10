@@ -5,7 +5,678 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GREIF | Упаковочные решения</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* GREIF-inspired стили с зеленой цветовой гаммой */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        :root {
+            --greif-green: #006b3f;
+            --greif-light-green: #3a9d5d;
+            --greif-dark-green: #004d2c;
+            --greif-beige: #f5f1e8;
+            --greif-gray: #4a4a4a;
+            --greif-light-gray: #f8f8f8;
+            --greif-orange: #f15a24;
+        }
+        
+        body {
+            background-color: var(--greif-beige);
+            color: var(--greif-gray);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Шапка */
+        header {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+            border-bottom: 2px solid var(--greif-green);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--greif-dark-green);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-tagline {
+            font-size: 12px;
+            color: var(--greif-green);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--greif-gray);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--greif-green);
+        }
+        
+        nav a.active {
+            color: var(--greif-green);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--greif-green);
+        }
+        
+        /* Главный баннер с фоновой картинкой */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            /* Фоновая картинка - производство упаковки */
+            background: linear-gradient(rgba(0, 107, 63, 0.85), rgba(0, 107, 63, 0.7)),
+                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            background-attachment: fixed; /* Параллакс-эффект */
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero h1 span {
+            color: #ffffff;
+        }
+        
+        .hero-subtitle {
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 500;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            line-height: 1.4;
+        }
+        
+        .years-in-russia {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: var(--greif-green);
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .years-in-russia:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Карточки */
+        .cards-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--greif-dark-green);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--greif-green);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--greif-gray);
+            max-width: 900px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--greif-green);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--greif-green), var(--greif-light-green));
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 107, 63, 0.15);
+        }
+        
+        .card-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--greif-green);
+            background-color: rgba(0, 107, 63, 0.1);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--greif-dark-green);
+        }
+        
+        .card-content {
+            margin-bottom: 25px;
+        }
+        
+        .card-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .card-content li {
+            padding: 10px 0;
+            color: var(--greif-gray);
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-content li:last-child {
+            border-bottom: none;
+        }
+        
+        .card-content li i {
+            margin-right: 12px;
+            color: var(--greif-light-green);
+            font-size: 14px;
+        }
+        
+        /* Кнопки */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 34px;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--greif-green);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--greif-dark-green);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 107, 63, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--greif-green);
+            border: 2px solid var(--greif-green);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 107, 63, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .btn i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* История и достижения */
+        .history-section {
+            padding: 80px 0;
+        }
+        
+        .history-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .history-text {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        
+        .history-text p {
+            margin-bottom: 20px;
+        }
+        
+        .history-highlights {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .highlight-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .highlight-icon {
+            font-size: 24px;
+            color: var(--greif-green);
+            background-color: rgba(0, 107, 63, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        /* Сервисы */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-item {
+            background: white;
+            border-radius: 12px;
+            padding: 35px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            border-left: 4px solid var(--greif-orange);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--greif-dark-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-title i {
+            color: var(--greif-orange);
+        }
+        
+        /* Статистика по карьере */
+        .stats-section {
+            padding: 60px 0;
+            background-color: var(--greif-dark-green);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 25px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Футер */
+        footer {
+            background-color: var(--greif-dark-green);
+            color: white;
+            padding: 70px 0 30px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--greif-light-green);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #d0d0d0;
+            margin-bottom: 12px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            background-color: var(--greif-green);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 14px 18px;
+            border-radius: 6px 0 0 6px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+        }
+        
+        .search-box input::placeholder {
+            color: #b0b0b0;
+        }
+        
+        .search-box button {
+            background-color: var(--greif-light-green);
+            color: white;
+            border: none;
+            padding: 0 22px;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: var(--greif-green);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 60px 0;
+                min-height: 60vh;
+                background-attachment: scroll; /* Отключаем параллакс на мобильных */
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 20px;
+                padding: 0 15px;
+            }
+            
+            .years-in-russia {
+                font-size: 18px;
+                padding: 12px 25px;
+            }
+            
+            .cards-grid, .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .history-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+        
+        /* Анимации */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
 </head>
 <body>
     <!-- Шапка -->
@@ -39,7 +710,7 @@
         </div>
     </header>
 
-    <!-- Главный баннер -->
+    <!-- Главный баннер с фоновой картинкой -->
     <section class="hero">
         <div class="container hero-content">
             <div class="years-in-russia">32 года в России</div>
@@ -62,7 +733,7 @@
             <h2 class="section-title">Наша продукция</h2>
             <p class="section-description">Компания Greif Inc. занимает лидирующие позиции в области производства жесткой и гибкой упаковки из стали, пластика, бумаги и комбинированных материалов.</p>
             <div class="cards-grid">
-                <div class="card">
+                <div class="card animate-fadeInUp">
                     <div class="card-icon">
                         <i class="fas fa-drum"></i>
                     </div>
@@ -73,7 +744,7 @@
                     <a href="catalog.html#steel-barrels" class="btn btn-primary" style="width: 100%;">Подробнее</a>
                 </div>
                 
-                <div class="card">
+                <div class="card animate-fadeInUp" style="animation-delay: 0.1s">
                     <div class="card-icon">
                         <i class="fas fa-cube"></i>
                     </div>
@@ -84,7 +755,7 @@
                     <a href="catalog.html#eurocubes" class="btn btn-primary" style="width: 100%;">Подробнее</a>
                 </div>
                 
-                <div class="card">
+                <div class="card animate-fadeInUp" style="animation-delay: 0.2s">
                     <div class="card-icon">
                         <i class="fas fa-tint"></i>
                     </div>
@@ -95,7 +766,7 @@
                     <a href="catalog.html#canisters" class="btn btn-primary" style="width: 100%;">Подробнее</a>
                 </div>
                 
-                <div class="card">
+                <div class="card animate-fadeInUp" style="animation-delay: 0.3s">
                     <div class="card-icon">
                         <i class="fas fa-box"></i>
                     </div>
@@ -249,7 +920,7 @@
                     <h3 style="margin-top: 25px;">Поиск по сайту</h3>
                     <div class="search-box">
                         <input type="text" placeholder="Введите запрос...">
-                        <button type="button"><i class="fas fa-search"></i></button>
+                        <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -261,6 +932,78 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Обработка поиска
+        document.getElementById('searchButton').addEventListener('click', function() {
+            const query = document.querySelector('.search-box input').value;
+            if (query.trim()) {
+                alert(`Поиск по запросу: "${query}". В реальном сайте здесь будет реализован поиск по содержимому.`);
+                document.querySelector('.search-box input').value = '';
+            }
+        });
+        
+        // Обработка нажатия Enter в поле поиска
+        document.querySelector('.search-box input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('searchButton').click();
+            }
+        });
+        
+        // Анимация при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!entry.target.classList.contains('animate-fadeInUp')) {
+                        entry.target.classList.add('animate-fadeInUp');
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Применяем анимацию к карточкам
+        document.querySelectorAll('.card, .service-item, .stat-item').forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Установка активного пункта меню
+        function setActiveNavItem() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('nav a').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        // Вызываем при загрузке
+        document.addEventListener('DOMContentLoaded', setActiveNavItem);
+    </script>
 </body>
 </html>
