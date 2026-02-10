@@ -58,7 +58,7 @@ header {
 }
 
 .logo-img {
-    height: 60px;
+    height: 80px; /* Изменил с 60px на 80px */
     width: auto;
 }
 
