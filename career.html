@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Карьера | GREIF</title>
+    <title>Вакансии | GREIF</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* GREIF-inspired стили с зеленой цветовой гаммой */
@@ -170,13 +170,57 @@
             color: var(--greif-dark-green);
         }
         
-        /* Статистика карьеры */
-        .stats-section {
-            padding: 60px 0;
+        /* Кнопки-аккордеоны */
+        .accordion-button {
+            width: 100%;
+            padding: 20px 30px;
             background-color: var(--greif-dark-green);
             color: white;
-            border-radius: 15px;
-            margin-bottom: 60px;
+            border: none;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .accordion-button:hover {
+            background-color: var(--greif-green);
+            transform: scale(1.01);
+        }
+        
+        .accordion-button i {
+            transition: transform 0.3s;
+        }
+        
+        .accordion-button.active i {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            display: none;
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .accordion-content.show {
+            display: block;
+        }
+        
+        /* Статистика карьеры */
+        .stats-section {
+            padding: 40px;
+            background-color: var(--greif-dark-green);
+            color: white;
+            border-radius: 12px;
         }
         
         .stats-grid {
@@ -230,17 +274,8 @@
         /* Программы развития */
         .programs-section {
             background-color: white;
-            border-radius: 15px;
-            padding: 50px;
-            margin-bottom: 60px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .programs-section h2 {
-            color: var(--greif-dark-green);
-            margin-bottom: 30px;
-            font-size: 32px;
-            text-align: center;
+            border-radius: 12px;
+            padding: 40px;
         }
         
         .programs-grid {
@@ -280,7 +315,7 @@
         
         /* Вакансии */
         .vacancies-section {
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         
         .vacancy-list {
@@ -695,6 +730,11 @@
                 width: 100%;
                 max-width: 300px;
             }
+            
+            .accordion-button {
+                font-size: 20px;
+                padding: 15px 20px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -718,6 +758,10 @@
                 flex-direction: column;
                 gap: 20px;
             }
+            
+            .accordion-button {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -735,7 +779,7 @@
                     <li><a href="catalog.html">Каталог</a></li>
                     <li><a href="services.html">Сервисы</a></li>
                     <li><a href="about.html">О компании</a></li>
-                    <li><a href="career.html" class="active">Карьера</a></li>
+                    <li><a href="vacancies.html" class="active">Вакансии</a></li>
                     <li><a href="contacts.html">Контакты</a></li>
                 </ul>
             </nav>
@@ -747,7 +791,7 @@
         <div class="container breadcrumbs-content">
             <a href="index.html">Главная</a>
             <i class="fas fa-chevron-right"></i>
-            <span>Карьера</span>
+            <span>Вакансии</span>
         </div>
     </div>
 
@@ -756,100 +800,8 @@
         <div class="container">
             <!-- Баннер карьеры -->
             <div class="career-hero">
-                <h1>Карьера в GREIF</h1>
+                <h1>Вакансии в GREIF</h1>
                 <p>Грайф — это компания для тех, кто хочет иметь стабильную заработную плату, определенное предсказуемое будущее и развиваться в рамках компании по выбранной профессии.</p>
-            </div>
-            
-            <!-- Основной текст -->
-            <div class="text-content">
-                <p>Девять площадок Грайф в западной и восточной части России — это практически неограниченные возможности для профессионального роста.</p>
-                
-                <p>Мы поддерживаем программу стажировки для технических специалистов — выпускников высших учебных заведений или тех, кто недавно закончил ВУЗы и уже получил первый опыт работы по специальности. Мы планируем развивать молодых специалистов по направлению экструзии полимеров, производственный менеджмент, автоматизация технологических процессов и производств, конструирование, контроль измерительных приборов и автоматики.</p>
-                
-                <p>Наши ближайшие планы, которые уже реализовываются, — создание инженерного центра на базе вологодского филиала, внедрение системы тренингов по адаптации персонала с тренерами в Калуге, Перми и Волгограде — сделают работу в Грайф еще интереснее для профессионалов и будут способствовать повышению эффективности и конкурентоспособности нашего бизнеса.</p>
-                
-                <p><strong>Сегодня Грайф — это более 500 коллег, работающих на 8 производственных площадках по всей России.</strong></p>
-            </div>
-            
-            <!-- Статистика карьеры -->
-            <div class="stats-section">
-                <h2 style="text-align: center; color: white; margin-bottom: 50px; font-size: 36px;">GREIF в цифрах</h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">520+</div>
-                        <div class="stat-label">сотрудников</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">8</div>
-                        <div class="stat-label">заводов</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">39</div>
-                        <div class="stat-label">средний возраст</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">7</div>
-                        <div class="stat-label">лет средний стаж</div>
-                    </div>
-                </div>
-                
-                <div class="gender-stats">
-                    <div class="gender-stat">
-                        <div class="gender-icon male-icon">
-                            <i class="fas fa-male"></i>
-                        </div>
-                        <div class="stat-number">83%</div>
-                        <div class="stat-label">мужчин</div>
-                    </div>
-                    
-                    <div class="gender-stat">
-                        <div class="gender-icon female-icon">
-                            <i class="fas fa-female"></i>
-                        </div>
-                        <div class="stat-number">17%</div>
-                        <div class="stat-label">женщин</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Программы развития -->
-            <div class="programs-section">
-                <h2>Программы развития и обучения</h2>
-                <div class="programs-grid">
-                    <div class="program-item">
-                        <h3><i class="fas fa-graduation-cap"></i> Стажировка для молодых специалистов</h3>
-                        <p>Мы предлагаем программу стажировки для выпускников ВУЗов и начинающих специалистов. Программа включает:</p>
-                        <ul>
-                            <li>Практическое обучение на производстве</li>
-                            <li>Наставничество от опытных специалистов</li>
-                            <li>Возможность трудоустройства после стажировки</li>
-                            <li>Развитие в выбранном направлении</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="program-item">
-                        <h3><i class="fas fa-cogs"></i> Техническое развитие</h3>
-                        <p>Мы развиваем специалистов по ключевым техническим направлениям:</p>
-                        <ul>
-                            <li>Экструзия полимеров</li>
-                            <li>Производственный менеджмент</li>
-                            <li>Автоматизация технологических процессов</li>
-                            <li>Конструирование и проектирование</li>
-                            <li>КИПиА (контрольно-измерительные приборы и автоматика)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="program-item">
-                        <h3><i class="fas fa-chart-line"></i> Планы развития</h3>
-                        <p>Наши ближайшие планы по развитию персонала:</p>
-                        <ul>
-                            <li>Создание инженерного центра в Вологде</li>
-                            <li>Внедрение системы тренингов по адаптации</li>
-                            <li>Подготовка тренеров в Калуге, Перми и Волгограде</li>
-                            <li>Программы повышения квалификации</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             
             <!-- Актуальные вакансии -->
@@ -1001,6 +953,108 @@
                 </div>
             </div>
             
+            <!-- Кнопка GREIF в цифрах -->
+            <button class="accordion-button" id="statsButton">
+                <span><i class="fas fa-chart-bar"></i> GREIF в цифрах</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content" id="statsContent">
+                <div class="stats-section">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">520+</div>
+                            <div class="stat-label">сотрудников</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">заводов</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">39</div>
+                            <div class="stat-label">средний возраст</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">лет средний стаж</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gender-stats">
+                        <div class="gender-stat">
+                            <div class="gender-icon male-icon">
+                                <i class="fas fa-male"></i>
+                            </div>
+                            <div class="stat-number">83%</div>
+                            <div class="stat-label">мужчин</div>
+                        </div>
+                        
+                        <div class="gender-stat">
+                            <div class="gender-icon female-icon">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <div class="stat-number">17%</div>
+                            <div class="stat-label">женщин</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Кнопка Программы развития и обучения -->
+            <button class="accordion-button" id="programsButton">
+                <span><i class="fas fa-graduation-cap"></i> Программы развития и обучения</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content" id="programsContent">
+                <div class="programs-section">
+                    <div class="programs-grid">
+                        <div class="program-item">
+                            <h3><i class="fas fa-graduation-cap"></i> Стажировка для молодых специалистов</h3>
+                            <p>Мы предлагаем программу стажировки для выпускников ВУЗов и начинающих специалистов. Программа включает:</p>
+                            <ul>
+                                <li>Практическое обучение на производстве</li>
+                                <li>Наставничество от опытных специалистов</li>
+                                <li>Возможность трудоустройства после стажировки</li>
+                                <li>Развитие в выбранном направлении</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="program-item">
+                            <h3><i class="fas fa-cogs"></i> Техническое развитие</h3>
+                            <p>Мы развиваем специалистов по ключевым техническим направлениям:</p>
+                            <ul>
+                                <li>Экструзия полимеров</li>
+                                <li>Производственный менеджмент</li>
+                                <li>Автоматизация технологических процессов</li>
+                                <li>Конструирование и проектирование</li>
+                                <li>КИПиА (контрольно-измерительные приборы и автоматика)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="program-item">
+                            <h3><i class="fas fa-chart-line"></i> Планы развития</h3>
+                            <p>Наши ближайшие планы по развитию персонала:</p>
+                            <ul>
+                                <li>Создание инженерного центра в Вологде</li>
+                                <li>Внедрение системы тренингов по адаптации</li>
+                                <li>Подготовка тренеров в Калуге, Перми и Волгограде</li>
+                                <li>Программы повышения квалификации</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Информация о девяти площадках -->
+            <div class="text-content" style="margin-top: 40px;">
+                <p><strong>Девять площадок Грайф в западной и восточной части России — это практически неограниченные возможности для профессионального роста.</strong></p>
+                
+                <p>Мы поддерживаем программу стажировки для технических специалистов — выпускников высших учебных заведений или тех, кто недавно закончил ВУЗы и уже получил первый опыт работы по специальности. Мы планируем развивать молодых специалистов по направлению экструзии полимеров, производственный менеджмент, автоматизация технологических процессов и производств, конструирование, контроль измерительных приборов и автоматики.</p>
+                
+                <p>Наши ближайшие планы, которые уже реализовываются, — создание инженерного центра на базе вологодского филиала, внедрение системы тренингов по адаптации персонала с тренерами в Калуге, Перми и Волгограде — сделают работу в Грайф еще интереснее для профессионалов и будут способствовать повышению эффективности и конкурентоспособности нашего бизнеса.</p>
+                
+                <p><strong>Сегодня Грайф — это более 500 коллег, работающих на 8 производственных площадках по всей России.</strong></p>
+            </div>
+            
             <!-- Социальные сети -->
             <div class="social-section">
                 <h2>Узнайте больше о жизни в компании</h2>
@@ -1118,7 +1172,7 @@
                         <a href="catalog.html">Каталог</a>
                         <a href="services.html">Сервисы</a>
                         <a href="about.html">О компании</a>
-                        <a href="career.html">Карьера</a>
+                        <a href="vacancies.html">Вакансии</a>
                         <a href="contacts.html">Контакты</a>
                     </div>
                     
@@ -1148,6 +1202,24 @@
                 } else {
                     link.classList.remove('active');
                 }
+            });
+            
+            // Аккордеон для статистики
+            const statsButton = document.getElementById('statsButton');
+            const statsContent = document.getElementById('statsContent');
+            
+            statsButton.addEventListener('click', function() {
+                this.classList.toggle('active');
+                statsContent.classList.toggle('show');
+            });
+            
+            // Аккордеон для программ развития
+            const programsButton = document.getElementById('programsButton');
+            const programsContent = document.getElementById('programsContent');
+            
+            programsButton.addEventListener('click', function() {
+                this.classList.toggle('active');
+                programsContent.classList.toggle('show');
             });
             
             // Обработка поиска вакансий
@@ -1211,8 +1283,8 @@
                 });
             }, observerOptions);
             
-            // Применяем анимацию к элементам
-            document.querySelectorAll('.vacancy-item, .program-item, .stat-item').forEach(item => {
+            // Применяем анимацию к вакансиям
+            document.querySelectorAll('.vacancy-item').forEach(item => {
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(20px)';
                 item.style.transition = 'opacity 0.5s, transform 0.5s';
@@ -1326,4 +1398,3 @@
     </script>
 </body>
 </html>
-```
