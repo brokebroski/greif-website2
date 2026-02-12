@@ -6,6 +6,93 @@
     <title>Контакты | GREIF</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные стили для гарантированного отображения */
+        .contact-card {
+            background: white !important;
+            border-radius: 12px !important;
+            padding: 35px 30px !important;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08) !important;
+            transition: transform 0.3s !important;
+            border-top: 5px solid var(--greif-green) !important;
+            height: 100% !important;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px) !important;
+        }
+        
+        .contact-header {
+            display: flex !important;
+            align-items: center !important;
+            gap: 15px !important;
+            margin-bottom: 25px !important;
+        }
+        
+        .contact-icon {
+            font-size: 36px !important;
+            color: var(--greif-green) !important;
+            background-color: rgba(0, 107, 63, 0.1) !important;
+            width: 70px !important;
+            height: 70px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+        }
+        
+        .contact-city {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            color: var(--greif-dark-green) !important;
+        }
+        
+        .contact-address {
+            color: var(--greif-gray) !important;
+            margin-bottom: 20px !important;
+            line-height: 1.6 !important;
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 10px !important;
+        }
+        
+        .contact-phone {
+            color: var(--greif-green) !important;
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            text-decoration: none !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            margin-bottom: 15px !important;
+        }
+        
+        .contact-email {
+            color: var(--greif-gray) !important;
+            font-size: 16px !important;
+            text-decoration: none !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            margin-bottom: 10px !important;
+        }
+        
+        .contact-person {
+            margin-top: 20px !important;
+            padding-top: 20px !important;
+            border-top: 1px solid #f0f0f0 !important;
+            color: var(--greif-gray) !important;
+            font-size: 14px !important;
+        }
+        
+        .contacts-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+            gap: 30px !important;
+            margin-bottom: 60px !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Шапка с кнопкой генеральному директору -->
@@ -49,7 +136,7 @@
                 <p>Свяжитесь с нами для получения информации, консультации или оформления заказа. Мы работаем по всей России и готовы помочь вам с упаковочными решениями.</p>
             </div>
             
-            <!-- Сетка контактов -->
+            <!-- Сетка контактов - ВОССТАНОВЛЕННЫЕ КАРТОЧКИ -->
             <h2 class="section-title">Наши офисы и заводы</h2>
             <div class="contacts-grid">
                 <!-- Москва -->
@@ -295,11 +382,34 @@
                     </div>
                 </div>
                 
-                <!-- HR Россия -->
-                <div class="contact-card" style="border-top-color: var(--greif-orange);">
+                <!-- Ангарск -->
+                <div class="contact-card">
                     <div class="contact-header">
-                        <div class="contact-icon" style="background-color: rgba(241, 90, 36, 0.1);">
-                            <i class="fas fa-users"></i>
+                        <div class="contact-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <div class="contact-city">ГРАЙФ в Ангарске</div>
+                    </div>
+                    
+                    <div class="contact-address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Россия, 665800, Иркутская область, г. Ангарск</span>
+                    </div>
+                    
+                    <a href="tel:+73995512345" class="contact-phone">
+                        <i class="fas fa-phone"></i> +7 (3955) 12-34-56
+                    </a>
+                    
+                    <div class="contact-person">
+                        <strong>Завод в Восточной Сибири</strong>
+                    </div>
+                </div>
+                
+                <!-- HR Россия -->
+                <div class="contact-card" style="border-top-color: var(--greif-orange) !important;">
+                    <div class="contact-header">
+                        <div class="contact-icon" style="background-color: rgba(241, 90, 36, 0.1) !important;">
+                            <i class="fas fa-users" style="color: var(--greif-orange) !important;"></i>
                         </div>
                         <div class="contact-city">HR Россия</div>
                     </div>
@@ -311,6 +421,10 @@
                     
                     <a href="tel:+79822300583" class="contact-phone">
                         <i class="fas fa-phone"></i> +7 (982) 230-05-83
+                    </a>
+                    
+                    <a href="mailto:hr.russia@greif.com" class="contact-email">
+                        <i class="fas fa-envelope"></i> hr.russia@greif.com
                     </a>
                     
                     <div class="contact-person">
@@ -396,6 +510,17 @@
                     <div class="hours-item">
                         <div class="hours-day">Техническая поддержка</div>
                         <div class="hours-time">24/7 для экстренных случаев</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Карта -->
+            <div class="map-section">
+                <div class="map-container">
+                    <div class="map-title"><i class="fas fa-map-marked-alt"></i> Мы на карте</div>
+                    <div class="map-placeholder">
+                        <i class="fas fa-map"></i>
+                        <p>Здесь будет отображаться карта с расположением всех офисов и заводов GREIF в России.</p>
                     </div>
                 </div>
             </div>
@@ -493,6 +618,24 @@
                     }
                 }, 100);
             }
+            
+            // Анимация карточек
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.contact-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(card);
+            });
         });
     </script>
 </body>
