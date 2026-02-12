@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Шапка -->
+    <!-- Шапка с кнопкой генеральному директору -->
     <header>
         <div class="container header-content">
             <a href="index.html" class="logo-container">
@@ -24,6 +24,10 @@
                     <li><a href="contacts.html">Контакты</a></li>
                 </ul>
             </nav>
+            <a href="contacts.html#ceo-message" class="btn-ceo-header">
+                <i class="fas fa-envelope"></i>
+                <span>Генеральному директору</span>
+            </a>
         </div>
     </header>
 
@@ -97,7 +101,7 @@
         </div>
     </section>
 
-    <!-- Контакты -->
+    <!-- Контакты (БЕЗ кнопки генеральному директору) -->
     <section class="contacts-section" id="contacts">
         <div class="container">
             <h2 class="section-title">Наши контакты</h2>
@@ -134,15 +138,6 @@
                     <a href="mailto:Vologda.Office@greif.com" class="contact-email">Vologda.Office@greif.com</a>
                 </div>
             </div>
-            
-            <!-- Кнопка "Написать генеральному директору" -->
-            <div class="ceo-director-wrapper">
-                <a href="contacts.html#ceo-message" class="ceo-director-button">
-                    <i class="fas fa-envelope"></i>
-                    <span>Написать генеральному директору</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
         </div>
     </section>
 
@@ -173,6 +168,15 @@
                         <div>
                             <div style="font-weight: 700; color: var(--greif-dark-green);">550+ сотрудников</div>
                             <div style="color: var(--greif-gray); font-size: 14px;">в России</div>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: var(--greif-dark-green);">33 года</div>
+                            <div style="color: var(--greif-gray); font-size: 14px;">успешной работы</div>
                         </div>
                     </div>
                 </div>
