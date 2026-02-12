@@ -143,12 +143,13 @@
             background-color: var(--greif-green);
             color: white;
             display: inline-block;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 20px;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-size: 24px;
             font-weight: 700;
             margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 107, 63, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 107, 63, 0.3);
+            letter-spacing: 1px;
         }
         
         .company-hero h1 {
@@ -185,22 +186,29 @@
         /* История компании */
         .history-section {
             background-color: white;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 50px;
             margin-bottom: 60px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--greif-green);
         }
         
         .history-section h2 {
             color: var(--greif-dark-green);
-            margin-bottom: 30px;
-            font-size: 32px;
+            margin-bottom: 40px;
+            font-size: 36px;
             text-align: center;
+            position: relative;
+        }
+        
+        .history-section h2 i {
+            color: var(--greif-green);
+            margin-right: 10px;
         }
         
         .history-timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
@@ -211,59 +219,120 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background-color: var(--greif-green);
+            background: linear-gradient(to bottom, var(--greif-green), var(--greif-light-green));
             transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .timeline-item {
             position: relative;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             width: 50%;
-            padding: 20px;
+            padding: 20px 40px;
         }
         
         .timeline-item:nth-child(odd) {
             left: 0;
             text-align: right;
-            padding-right: 50px;
         }
         
         .timeline-item:nth-child(even) {
             left: 50%;
             text-align: left;
-            padding-left: 50px;
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             background-color: var(--greif-green);
             border-radius: 50%;
-            top: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px rgba(0, 107, 63, 0.2);
+            z-index: 1;
         }
         
         .timeline-item:nth-child(odd)::before {
-            right: -10px;
+            right: -9px;
         }
         
         .timeline-item:nth-child(even)::before {
-            left: -10px;
+            left: -9px;
         }
         
         .timeline-year {
-            font-size: 24px;
+            display: inline-block;
+            background-color: var(--greif-green);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 18px;
             font-weight: 700;
-            color: var(--greif-green);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0, 107, 63, 0.2);
         }
         
         .timeline-content {
             background-color: var(--greif-light-gray);
-            padding: 15px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: 12px;
             border-left: 4px solid var(--greif-green);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-content h4 {
+            color: var(--greif-dark-green);
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .timeline-content p {
+            color: var(--greif-gray);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        
+        .timeline-content p i {
+            color: var(--greif-green);
+            width: 20px;
+        }
+        
+        /* Карточка 33 года */
+        .anniversary-card {
+            background: linear-gradient(135deg, var(--greif-dark-green) 0%, var(--greif-green) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 107, 63, 0.3);
+        }
+        
+        .anniversary-card h3 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .anniversary-card p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .anniversary-card i {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         /* Достижения */
@@ -276,22 +345,31 @@
         
         .achievement-item {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 30px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
             border-top: 5px solid var(--greif-green);
         }
         
         .achievement-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 107, 63, 0.15);
         }
         
         .achievement-icon {
             font-size: 40px;
             margin-bottom: 20px;
             color: var(--greif-green);
+            background-color: rgba(0, 107, 63, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
         }
         
         .achievement-number {
@@ -306,6 +384,61 @@
             color: var(--greif-gray);
         }
         
+        /* Карта заводов */
+        .factories-map {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .factories-map h2 {
+            color: var(--greif-dark-green);
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-align: center;
+        }
+        
+        .factories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .factory-item {
+            background-color: var(--greif-light-gray);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border-left: 4px solid var(--greif-green);
+            transition: transform 0.3s;
+        }
+        
+        .factory-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 107, 63, 0.1);
+        }
+        
+        .factory-year {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--greif-green);
+            margin-bottom: 5px;
+        }
+        
+        .factory-city {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--greif-dark-green);
+            margin-bottom: 5px;
+        }
+        
+        .factory-region {
+            font-size: 14px;
+            color: var(--greif-gray);
+        }
+        
         /* Разделы компании */
         .company-sections {
             display: grid;
@@ -316,9 +449,9 @@
         
         .company-section {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 35px 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
             border-left: 4px solid var(--greif-green);
         }
@@ -345,7 +478,7 @@
         .clients-section {
             background-color: var(--greif-light-gray);
             padding: 50px;
-            border-radius: 15px;
+            border-radius: 20px;
             margin-bottom: 60px;
         }
         
@@ -368,13 +501,20 @@
             border-radius: 10px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
             color: var(--greif-dark-green);
+            transition: all 0.3s;
+        }
+        
+        .client-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 107, 63, 0.15);
+            border-left: 4px solid var(--greif-green);
         }
         
         /* Кнопки */
@@ -589,6 +729,11 @@
                 padding: 0 15px;
             }
             
+            .years-badge {
+                font-size: 20px;
+                padding: 10px 25px;
+            }
+            
             .history-timeline::before {
                 left: 30px;
             }
@@ -606,11 +751,15 @@
                 right: auto !important;
             }
             
-            .achievements-grid, .company-sections, .clients-grid {
+            .timeline-item:nth-child(odd) {
+                text-align: left !important;
+            }
+            
+            .achievements-grid, .company-sections, .clients-grid, .factories-grid {
                 grid-template-columns: 1fr;
             }
             
-            .history-section, .clients-section {
+            .history-section, .clients-section, .factories-map {
                 padding: 30px 20px;
             }
             
@@ -623,6 +772,10 @@
                 width: 100%;
                 max-width: 300px;
             }
+            
+            .anniversary-card h3 {
+                font-size: 32px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -631,17 +784,24 @@
             }
             
             .years-badge {
-                font-size: 16px;
-                padding: 10px 20px;
+                font-size: 18px;
+                padding: 8px 20px;
             }
             
             .section-title {
                 font-size: 28px;
             }
             
-            .client-item {
-                height: 80px;
-                font-size: 14px;
+            .anniversary-card h3 {
+                font-size: 28px;
+            }
+            
+            .anniversary-card p {
+                font-size: 16px;
+            }
+            
+            .timeline-year {
+                font-size: 16px;
             }
         }
     </style>
@@ -660,7 +820,7 @@
                     <li><a href="catalog.html">Каталог</a></li>
                     <li><a href="services.html">Сервисы</a></li>
                     <li><a href="about.html" class="active">О компании</a></li>
-                    <li><a href="career.html">Карьера</a></li>
+                    <li><a href="vacancies.html">Вакансии</a></li>
                     <li><a href="contacts.html">Контакты</a></li>
                 </ul>
             </nav>
@@ -681,34 +841,36 @@
         <div class="container">
             <!-- Баннер о компании -->
             <div class="company-hero">
-                <div class="years-badge">32 года в России</div>
+                <div class="years-badge">
+                    33 ГОДА В РОССИИ
+                </div>
                 <h1>GREIF. История успеха</h1>
                 <p>Мировой лидер в области промышленных упаковочных решений и сервисов</p>
             </div>
             
             <!-- Основной текст -->
             <div class="text-content">
-                <p>Компания <strong>Грайф</strong> работает на территории России с 1993 года. Под брендом Грайф производятся стальные бочки; пластиковая тара – IBC (еврокубы) и канистры; картонные контейнеры для битума. В 2023 году наша компания отметила 30-летний юбилей работы в России.</p>
+                <p>Компания <strong>Грайф</strong> работает на территории России с 1993 года. Под брендом Грайф производятся стальные бочки; пластиковая тара – IBC (еврокубы) и канистры; картонные контейнеры для битума. В 2026 году компания отмечает 33 года успешной работы в России.</p>
                 
-                <p>В нашем бизнесе мы используем передовые технологии и оборудование, предъявляем самые строгие требования к качеству выпускаемой нами упаковки. Наши клиенты — все ведущие химические и нефтехимические компании России и СНГ и мы гордимся долгим и плодотворным сотрудничеством!</p>
+                <p>В нашем бизнесе мы используем передовые технологии и оборудование, предъявляем самые строгие требования к качеству выпускаемой нами упаковки. Наши клиенты — все ведущие химические и нефтехимические компании России и СНГ, и мы гордимся долгим и плодотворным сотрудничеством!</p>
             </div>
             
             <!-- Достижения -->
-            <h2 class="section-title">Наши достижения</h2>
+            <h2 class="section-title">Ключевые показатели</h2>
             <div class="achievements-grid">
                 <div class="achievement-item">
                     <div class="achievement-icon">
                         <i class="fas fa-industry"></i>
                     </div>
                     <div class="achievement-number">9</div>
-                    <div class="achievement-text">заводов в крупнейших промышленных узлах РФ</div>
+                    <div class="achievement-text">производственных площадок в РФ</div>
                 </div>
                 
                 <div class="achievement-item">
                     <div class="achievement-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <div class="achievement-number">520+</div>
+                    <div class="achievement-number">550+</div>
                     <div class="achievement-text">сотрудников по всей России</div>
                 </div>
                 
@@ -716,7 +878,7 @@
                     <div class="achievement-icon">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <div class="achievement-number">32</div>
+                    <div class="achievement-number">33</div>
                     <div class="achievement-text">года работы в России</div>
                 </div>
                 
@@ -724,124 +886,243 @@
                     <div class="achievement-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <div class="achievement-number">146</div>
+                    <div class="achievement-number">149</div>
                     <div class="achievement-text">лет истории компании Greif Inc.</div>
                 </div>
             </div>
             
             <!-- История компании -->
             <div class="history-section" id="history">
-                <h2>История компании</h2>
+                <h2><i class="fas fa-timeline"></i> История GREIF в России</h2>
                 <div class="history-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">1877</div>
-                        <div class="timeline-content">
-                            <p>Основание компании Greif Inc. в США. Начало производства деревянных бочек.</p>
-                        </div>
-                    </div>
-                    
+                    <!-- 1993 - Белоярский -->
                     <div class="timeline-item">
                         <div class="timeline-year">1993</div>
                         <div class="timeline-content">
-                            <p>Greif начинает работу на территории России. Открытие первого завода.</p>
+                            <h4>Основание первого завода</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> п. Белоярский, Свердловская область</p>
+                            <p><i class="fas fa-industry"></i> Начало производства стальных бочек</p>
                         </div>
                     </div>
                     
+                    <!-- 1998 - Вологда -->
                     <div class="timeline-item">
-                        <div class="timeline-year">2000-е</div>
+                        <div class="timeline-year">1998</div>
                         <div class="timeline-content">
-                            <p>Экспансия в России. Открытие новых заводов в ключевых промышленных регионах.</p>
+                            <h4>Расширение производства</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Вологда</p>
+                            <p><i class="fas fa-box"></i> Запуск завода по производству упаковки</p>
                         </div>
                     </div>
                     
+                    <!-- 2003 - Волгоград -->
                     <div class="timeline-item">
-                        <div class="timeline-year">2023</div>
+                        <div class="timeline-year">2003</div>
                         <div class="timeline-content">
-                            <p>30-летний юбилей работы в России. Внедрение новых технологий и расширение ассортимента.</p>
+                            <h4>Новый производственный комплекс</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Волгоград</p>
+                            <p><i class="fas fa-flask"></i> Производство химической упаковки</p>
                         </div>
+                    </div>
+                    
+                    <!-- 2004 - Пермь -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2004</div>
+                        <div class="timeline-content">
+                            <h4>Завод в Перми</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Пермь</p>
+                            <p><i class="fas fa-oil-can"></i> Производство IBC контейнеров</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2005 - Омск -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2005</div>
+                        <div class="timeline-content">
+                            <h4>Завод в Омске</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Омск</p>
+                            <p><i class="fas fa-box"></i> Расширение присутствия в Сибири</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2007 - Казань и Ангарск -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2007</div>
+                        <div class="timeline-content">
+                            <h4>Масштабирование производства</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Казань</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Ангарск</p>
+                            <p><i class="fas fa-chart-line"></i> Укрепление позиций в Поволжье и Восточной Сибири</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2014 - Рязань -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2014</div>
+                        <div class="timeline-content">
+                            <h4>Завод в Рязани</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Рязань</p>
+                            <p><i class="fas fa-boxes"></i> Производство картонных контейнеров для битума</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2018 - Калуга -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-content">
+                            <h4>Новый завод в Калуге</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Калуга (Индустриальный парк Ворсино)</p>
+                            <p><i class="fas fa-cogs"></i> Основной производственный комплекс</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2022 - Калуга (расширение) -->
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h4>Модернизация производства</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> Калуга</p>
+                            <p><i class="fas fa-robot"></i> Автоматизация и расширение мощностей</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Карточка 33 года -->
+                <div class="anniversary-card">
+                    <i class="fas fa-flag"></i>
+                    <h3>33 ГОДА В РОССИИ</h3>
+                    <p>1993 - 2026 • Три десятилетия успешной работы и развития</p>
+                    <p style="margin-top: 15px; font-size: 18px;">От первого завода в Белоярском до 9 производственных площадок по всей стране</p>
+                </div>
+            </div>
+            
+            <!-- Производственная сеть -->
+            <div class="factories-map">
+                <h2><i class="fas fa-map-marked-alt"></i> Производственная сеть в России</h2>
+                <div class="factories-grid">
+                    <div class="factory-item">
+                        <div class="factory-year">1993</div>
+                        <div class="factory-city">п. Белоярский</div>
+                        <div class="factory-region">Свердловская область</div>
+                    </div>
+                    <div class="factory-item">
+                        <div class="factory-year">1998</div>
+                        <div class="factory-city">Вологда</div>
+                    </div>
+                    <div class="factory-item">
+                        <div class="factory-year">2003</div>
+                        <div class="factory-city">Волгоград</div>
+                    </div>
+                    <div class="factory-item">
+                        <div class="factory-year">2004</div>
+                        <div class="factory-city">Пермь</div>
+                    </div>
+                    <div class="factory-item">
+                        <div class="factory-year">2005</div>
+                        <div class="factory-city">Омск</div>
+                    </div>
+                    <div class="factory-item">
+                        <div class="factory-year">2007</div>
+                        <div class="factory-city">Казань</div>
+                    </div>
+                    <div class="factory-item">
+                        <div class="factory-year">2007</div>
+                        <div class="factory-city">Ангарск</div>
+                    </div>
+                    <div class="factory-item">
+                        <div class="factory-year">2014</div>
+                        <div class="factory-city">Рязань</div>
+                    </div>
+                    <div class="factory-item">
+                        <div class="factory-year">2018</div>
+                        <div class="factory-city">Калуга</div>
+                    </div>
+                    <div class="factory-item">
+                        <div class="factory-year">2022</div>
+                        <div class="factory-city">Калуга</div>
+                        <div class="factory-region">модернизация</div>
                     </div>
                 </div>
             </div>
             
-            <!-- Разделы компании -->
+            <!-- Стратегические направления -->
             <div class="company-sections">
                 <div class="company-section" id="sustainability">
                     <h3><i class="fas fa-leaf"></i> Устойчивое развитие</h3>
                     <p>Мы стремимся минимизировать воздействие на окружающую среду, внедряя принципы циркулярной экономики. Наши программы по сбору и восстановлению упаковки позволяют значительно сократить отходы и экономить ресурсы.</p>
                     <ul style="margin-top: 15px; padding-left: 20px;">
                         <li>Программы переработки и восстановления упаковки</li>
-                        <li>Снижение углеродного следа в производстве</li>
-                        <li>Использование экологичных материалов</li>
+                        <li>Снижение углеродного следа</li>
+                        <li>Экологичные материалы</li>
                         <li>Энергоэффективные технологии</li>
                     </ul>
                 </div>
                 
                 <div class="company-section" id="news">
                     <h3><i class="fas fa-newspaper"></i> Новости компании</h3>
-                    <p>Будьте в курсе последних событий и достижений компании GREIF. Мы регулярно публикуем новости о запуске новых продуктов, участии в выставках и развитии нашего бизнеса.</p>
+                    <p>Будьте в курсе последних событий и достижений компании GREIF. Мы регулярно публикуем новости о развитии производственных мощностей и внедрении новых технологий.</p>
                     <div style="margin-top: 20px; background-color: var(--greif-light-gray); padding: 15px; border-radius: 8px;">
-                        <p style="font-weight: 600; color: var(--greif-green); margin-bottom: 10px;">Последние новости:</p>
+                        <p style="font-weight: 600; color: var(--greif-green); margin-bottom: 10px;">2025-2026:</p>
                         <ul style="padding-left: 20px;">
-                            <li>Открытие нового инженерного центра в Вологде</li>
-                            <li>Запуск линии по производству биоразлагаемой упаковки</li>
-                            <li>Участие в международной выставке "Химия-2024"</li>
+                            <li>Развитие инженерного центра в Вологде</li>
+                            <li>Внедрение цифровых систем управления производством</li>
+                            <li>Расширение линейки экологичной упаковки</li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="company-section" id="videos">
-                    <h3><i class="fas fa-video"></i> Видеоматериалы</h3>
-                    <p>Ознакомьтесь с нашими видеоматериалами, чтобы узнать больше о производственных процессах, продукции и компании в целом.</p>
-                    <div style="margin-top: 20px; background-color: var(--greif-light-gray); padding: 15px; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-play-circle" style="font-size: 40px; color: var(--greif-green); margin-bottom: 10px;"></i>
-                        <p style="font-weight: 600; color: var(--greif-dark-green);">Доступные видео:</p>
+                    <h3><i class="fas fa-video"></i> Медиа</h3>
+                    <p>Ознакомьтесь с материалами о производственных процессах, продукции и корпоративной культуре компании.</p>
+                    <div style="margin-top: 20px; background-color: var(--greif-light-gray); padding: 15px; border-radius: 8px;">
+                        <i class="fas fa-play-circle" style="font-size: 40px; color: var(--greif-green); margin-bottom: 10px; display: block;"></i>
+                        <p style="font-weight: 600; color: var(--greif-dark-green);">Доступные материалы:</p>
                         <ul style="padding-left: 20px; text-align: left;">
                             <li>Экскурсия по заводу в Калуге</li>
-                            <li>Процесс производства еврокубов</li>
-                            <li>Интервью с руководством компании</li>
-                            <li>Корпоративный фильм о GREIF</li>
+                            <li>Технология производства IBC контейнеров</li>
+                            <li>Корпоративный фильм GREIF</li>
                         </ul>
                     </div>
                 </div>
             </div>
             
-            <!-- Наши клиенты -->
+            <!-- Ключевые клиенты -->
             <div class="clients-section">
-                <h2>Наши клиенты</h2>
-                <p style="text-align: center; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">Мы гордимся сотрудничеством с ведущими компаниями различных отраслей промышленности:</p>
+                <h2>Отрасли присутствия</h2>
+                <p style="text-align: center; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">Мы обеспечиваем упаковочными решениями ведущие предприятия ключевых отраслей промышленности:</p>
                 
                 <div class="clients-grid">
                     <div class="client-item">Химическая промышленность</div>
-                    <div class="client-item">Нефтехимическая промышленность</div>
+                    <div class="client-item">Нефтехимия</div>
                     <div class="client-item">Пищевая промышленность</div>
-                    <div class="client-item">Фармацевтическая промышленность</div>
-                    <div class="client-item">Автомобильная промышленность</div>
-                    <div class="client-item">Сельскохозяйственная отрасль</div>
+                    <div class="client-item">Фармацевтика</div>
+                    <div class="client-item">Автомобилестроение</div>
+                    <div class="client-item">Агропромышленный комплекс</div>
                 </div>
             </div>
             
             <!-- Философия компании -->
             <div class="history-section">
-                <h2>Наша философия</h2>
+                <h2>Миссия и ценности</h2>
                 <div class="text-content">
-                    <p><strong>PACKAGING SUCCESS TOGETHER™</strong> - это не просто слоган, это философия нашей компании. Мы верим, что успех достигается совместными усилиями с нашими клиентами, партнерами и сотрудниками.</p>
+                    <p><strong>PACKAGING SUCCESS TOGETHER™</strong> — стратегия нашей компании, основанная на партнерстве и совместном достижении целей с клиентами, партнерами и сотрудниками.</p>
                     
-                    <p>Наша миссия - предоставлять инновационные, надежные и экологичные упаковочные решения, которые помогают нашим клиентам достигать их бизнес-целей. Мы стремимся быть не просто поставщиком упаковки, а стратегическим партнером, который вносит вклад в успех вашего бизнеса.</p>
+                    <p>Наша миссия — предоставлять инновационные, надежные и экологичные упаковочные решения, которые помогают клиентам достигать бизнес-целей. Мы стремимся быть стратегическим партнером, вносящим вклад в успех бизнеса наших заказчиков.</p>
                     
-                    <p>Ценности GREIF: <strong>Надежность, Инновации, Ответственность, Партнерство, Качество</strong>. Эти принципы лежат в основе всего, что мы делаем - от разработки новых продуктов до взаимодействия с клиентами.</p>
+                    <p><strong>Ключевые ценности GREIF:</strong> Надежность, Инновации, Ответственность, Партнерство, Качество. Эти принципы лежат в основе всех бизнес-процессов — от разработки новых продуктов до взаимодействия с клиентами.</p>
                 </div>
             </div>
             
-            <!-- Кнопки для действий -->
+            <!-- Кнопки -->
             <div class="cta-buttons">
                 <a href="catalog.html" class="btn btn-primary">
-                    <i class="fas fa-box"></i> Наша продукция
+                    <i class="fas fa-box"></i> Продукция
                 </a>
                 <a href="contacts.html" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Связаться с нами
+                    <i class="fas fa-envelope"></i> Контакты
                 </a>
-                <a href="career.html" class="btn btn-primary">
-                    <i class="fas fa-briefcase"></i> Карьера в GREIF
+                <a href="vacancies.html" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i> Вакансии
                 </a>
             </div>
         </div>
@@ -856,10 +1137,10 @@
                     <a href="#" target="_blank">Global Website <i class="fas fa-external-link-alt" style="margin-left: 5px;"></i></a>
                     <p>Лидер в производстве промышленной упаковки с 1877 года</p>
                     <div class="footer-links">
-                        <a href="about.html#history">История компании</a>
+                        <a href="about.html#history">История</a>
                         <a href="about.html#sustainability">Устойчивое развитие</a>
                         <a href="about.html#news">Новости</a>
-                        <a href="about.html#videos">Видеоматериалы</a>
+                        <a href="about.html#videos">Медиа</a>
                     </div>
                 </div>
                 
@@ -876,21 +1157,20 @@
                         <a href="catalog.html">Каталог</a>
                         <a href="services.html">Сервисы</a>
                         <a href="about.html">О компании</a>
-                        <a href="career.html">Карьера</a>
+                        <a href="vacancies.html">Вакансии</a>
                         <a href="contacts.html">Контакты</a>
                     </div>
                     
-                    <h3 style="margin-top: 25px;">Поиск по сайту</h3>
+                    <h3 style="margin-top: 25px;">Поиск</h3>
                     <div class="search-box">
-                        <input type="text" placeholder="Введите запрос...">
+                        <input type="text" placeholder="Поиск по сайту...">
                         <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>Greif Russia. Copyright by GREIF Inc. All rights reserved.</p>
-                <p style="margin-top: 10px;">Доработано в brain promo</p>
+                <p>© GREIF Russia. 1993-2026. Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -914,19 +1194,19 @@
                 const query = input.value;
                 
                 if (query.trim()) {
-                    alert(`Поиск по запросу: "${query}". В реальном сайте здесь будет реализован поиск по содержимому.`);
+                    alert(`Поиск по запросу: "${query}"`);
                     input.value = '';
                 }
             });
             
-            // Обработка нажатия Enter в поле поиска
+            // Обработка Enter в поле поиска
             document.querySelector('.search-box input').addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     document.getElementById('searchButton').click();
                 }
             });
             
-            // Анимация для элементов при прокрутке
+            // Анимация при прокрутке
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -941,8 +1221,8 @@
                 });
             }, observerOptions);
             
-            // Применяем анимацию к карточкам достижений и разделам
-            document.querySelectorAll('.achievement-item, .company-section, .timeline-item').forEach(item => {
+            // Применяем анимацию
+            document.querySelectorAll('.achievement-item, .company-section, .timeline-item, .factory-item').forEach(item => {
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(20px)';
                 item.style.transition = 'opacity 0.5s, transform 0.5s';
@@ -963,7 +1243,7 @@
             }
         });
         
-        // Плавная прокрутка для якорных ссылок
+        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 if (this.getAttribute('href') === '#') return;
@@ -984,4 +1264,3 @@
     </script>
 </body>
 </html>
-```
